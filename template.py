@@ -8,7 +8,9 @@ bot = telebot.TeleBot("5043926452:AAFLpliMElJViSDo9bOZ-tGluKjmBJ4CCg0", parse_mo
 @bot.message_handler(commands=['menu'])
 def echo_all(message):
     bot.send_message(message.chat.id, text)
-
+@bot.message_handler(commands=['menu'])
+def echo_all(message):
+    bot.send_message(message.chat.id, 'Hello. This bot will find you all kinds of templates. Press /menu to select.')
 
 links = []
 @bot.message_handler(func=lambda message: True)
