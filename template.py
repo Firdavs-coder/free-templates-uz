@@ -29,13 +29,14 @@ def echo_all(message):
         media = []
         links.clear()
         for i in get_three:
-            links.append('https://www.free-css.com' + i.select('a')[0]['href'])
+            links.append(i.select('a')[0]['href'])
             media.append(types.InputMediaPhoto('https://www.free-css.com' +  i.select('img')[0]['src']))
         markup = types.InlineKeyboardMarkup(row_width=2)
-        itembtna = types.InlineKeyboardButton('1', callback_data='0')
-        itembtna1 = types.InlineKeyboardButton('2', callback_data='1')
-        itembtna2 = types.InlineKeyboardButton('3', callback_data='2')
-        itembtna3 = types.InlineKeyboardButton('4', callback_data='3')
+        print(links)
+        itembtna = types.InlineKeyboardButton('1', callback_data=links[0])
+        itembtna1 = types.InlineKeyboardButton('2', callback_data=links[1])
+        itembtna2 = types.InlineKeyboardButton('3', callback_data=links[2])
+        itembtna3 = types.InlineKeyboardButton('4', callback_data=links[3])
         markup.add(itembtna,itembtna1,itembtna2,itembtna3)
         bot.send_media_group(message.chat.id, media)
         bot.send_message(message.chat.id, 'Choose one', reply_markup=markup)
@@ -44,7 +45,10 @@ def echo_all(message):
     
 @bot.callback_query_handler(func=lambda call: True)
 def callback_query(call):
-    sahifa2 = links[int(call.data)]
+    # 'https://www.free-css.com' + 
+    # print('https://www.free-css.com' + call.data)
+    sahifa2 = 'https://www.free-css.com' + call.data
+    # sahifa2 = links[int(call.data)]
     r2 = requests.get(sahifa2)
     soup = BeautifulSoup(r2.text, 'html.parser')
     zip = 'https://www.free-css.com' +  soup.select('ul[class="clear"] li[class="dld"] a')[0]["href"]
