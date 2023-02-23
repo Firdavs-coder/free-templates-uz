@@ -6,8 +6,7 @@ from telebot import types
 from helpers import *
 from data import *
 import random
-# bot = telebot.TeleBot("5042865364:AAH4Tndi4n_vawDY9sXyEUlS4omPIePaVT4", parse_mode=None) # You can set parse_mode by default. HTML or MARKDOWN
-bot = telebot.TeleBot("5043926452:AAFLpliMElJViSDo9bOZ-tGluKjmBJ4CCg0", parse_mode=None) # You can set parse_mode by default. HTML or MARKDOWN
+bot = telebot.TeleBot(TOKEN, parse_mode=None) # You can set parse_mode by default. HTML or MARKDOWN
 
 all_data1 = []
 
