@@ -1,4 +1,4 @@
-# free-templates-uz
+# Static website scraping. Automatically.
 To Find free codes of static websites automatically.
 
 ```python
